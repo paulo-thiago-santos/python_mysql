@@ -19,6 +19,7 @@ if conexao.is_connected():
 
     #str_to_execute = f"CREATE DATABASE {ALUNO}_db;"
     #terminal.execute(str_to_execute)
+    
     # str_to_execute = "SHOW DATABASES"
     # terminal.execute(str_to_execute)
     # for banco in terminal:
@@ -31,13 +32,14 @@ if conexao.is_connected():
     # ##################CREATE TABLE#################
 
     # str_to_execute = """
-    #     CREATE TABLE alunos (
+    #     CREATE TABLE Responsaveis (
     #         id INT PRIMARY KEY AUTO_INCREMENT,
     #         nome VARCHAR(100) NOT NULL,
     #         email VARCHAR(150)
     #     )
     # """
     # terminal.execute(str_to_execute)
+    
     # str_to_execute = "SHOW TABLES"
     # terminal.execute(str_to_execute)
     # tabelas = terminal.fetchall()
@@ -47,25 +49,61 @@ if conexao.is_connected():
     #######################################
     #############ALTER TABLE ##############
 
-    # str_to_execute = "ALTER TABLE alunos ADD telefone VARCHAR(20);"
+    # str_to_execute = "ALTER TABLE Responsaveis ADD telefone VARCHAR(20);"
     # terminal.execute(str_to_execute)
-    # str_to_execute = "SHOW COLUMNS FROM alunos"
-    # terminal.execute(str_to_execute)
-    # colunas = terminal.fetchall()
-    # for coluna in colunas:
-    #     print(coluna)
-
-    # str_to_execute = "ALTER TABLE alunos MODIFY telefone int;"
-    # terminal.execute(str_to_execute)
-    # str_to_execute = "SHOW COLUMNS FROM alunos"
+    
+    # str_to_execute = "SHOW COLUMNS FROM Responsaveis"
     # terminal.execute(str_to_execute)
     # colunas = terminal.fetchall()
     # for coluna in colunas:
     #     print(coluna)
 
-    # str_to_execute = "ALTER TABLE alunos DROP COLUMN telefone;"
+    # str_to_execute = "ALTER TABLE Responsaveis MODIFY telefone int;"
     # terminal.execute(str_to_execute)
-    # str_to_execute = "SHOW COLUMNS FROM alunos"
+    
+    # str_to_execute = "SHOW COLUMNS FROM Responsaveis"
+    # terminal.execute(str_to_execute)
+    # colunas = terminal.fetchall()
+    # for coluna in colunas:
+    #     print(coluna)
+
+    # str_to_execute = "ALTER TABLE Responsaveis DROP COLUMN telefone;"
+    # terminal.execute(str_to_execute)
+    
+    # str_to_execute = "SHOW COLUMNS FROM Responsaveis"
+    # terminal.execute(str_to_execute)
+    # colunas = terminal.fetchall()
+    # for coluna in colunas:
+    #     print(coluna)
+
+    ###########################################
+    ################FK#########################
+
+    # str_to_execute = """
+    #     CREATE TABLE Alunos (
+    #         id INT AUTO_INCREMENT PRIMARY KEY,
+    #         nome VARCHAR(100) NOT NULL,
+    #         email VARCHAR(150),
+    #         responsavel_id INT,
+    #         FOREIGN KEY (responsavel_id)
+    #             REFERENCES Responsaveis(id) 
+    #     ); 
+    # """
+    # terminal.execute(str_to_execute)
+    
+    # str_to_execute = "SHOW TABLES"
+    # terminal.execute(str_to_execute)
+    # tabelas = terminal.fetchall()
+    # for tabela in tabelas:
+    #     print(tabela[0])
+    
+    # str_to_execute = "SHOW COLUMNS FROM Responsaveis"
+    # terminal.execute(str_to_execute)
+    # colunas = terminal.fetchall()
+    # for coluna in colunas:
+    #     print(coluna)
+    
+    # str_to_execute = "SHOW COLUMNS FROM Alunos"
     # terminal.execute(str_to_execute)
     # colunas = terminal.fetchall()
     # for coluna in colunas:
@@ -79,8 +117,13 @@ if conexao.is_connected():
     # tabelas = terminal.fetchall()
     # for tabela in tabelas:
     #     print(tabela[0])
-    # str_to_execute = f"DROP TABLE alunos;"
+    
+    # str_to_execute = f"DROP TABLE Alunos;"
     # terminal.execute(str_to_execute)
+    
+    # str_to_execute = f"DROP TABLE Responsaveis;"
+    # terminal.execute(str_to_execute)
+    
     # str_to_execute = "SHOW TABLES"
     # terminal.execute(str_to_execute)
     # tabelas = terminal.fetchall()
@@ -91,9 +134,11 @@ if conexao.is_connected():
     # terminal.execute(str_to_execute)
     # for banco in terminal:
     #     print(banco[0])
+    
     # str_to_execute = f"DROP DATABASE {ALUNO}_db;"
     # terminal.execute(str_to_execute)
     # conexao.commit()
+    
     # str_to_execute = "SHOW DATABASES"
     # terminal.execute(str_to_execute)
     # for banco in terminal:
