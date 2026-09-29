@@ -1,4 +1,4 @@
-#venv\Scripts\python.exe -m pip install fastapi uvicorn sqlalchemy pymysql
+#venv\Scripts\python.exe -m pip install fastapi uvicorn sqlalchemy pymysql mysql-connector-python
 #venv\Scripts\python.exe -m uvicorn main:app --host 0.0.0.0 --port 8000
 
 # import mysql.connector
