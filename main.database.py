@@ -19,6 +19,10 @@ for comando in sql.split(";"):
 
     if comando:
         cursor.execute(comando)
+        resultado = cursor.fetchall()
+
+        for linha in resultado:
+            print(linha)
 
 conexao.commit()
 
