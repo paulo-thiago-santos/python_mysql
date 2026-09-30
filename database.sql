@@ -30,7 +30,6 @@ CREATE ROLE IF NOT EXISTS 'secretarios';
 GRANT SELECT ON escola.aluno TO 'secretarios';
 GRANT SELECT ON escola.funcionario TO 'secretarios';
 GRANT UPDATE ON escola.aluno TO 'secretarios';
-GRANT UPDATE (nome_func, telefone_func) ON escola.funcionario TO 'secretarios';
 
 CREATE ROLE IF NOT EXISTS 'gestores';
 GRANT SELECT ON escola.aluno TO 'gestores';
