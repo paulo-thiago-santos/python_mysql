@@ -1,12 +1,3 @@
-docker run -d \
-  --name mysql-server \
-  -p 3306:3306 \
-  -e MYSQL_ROOT_PASSWORD=123456 \
-  -e MYSQL_DATABASE=escola \
-  -e MYSQL_USER=usuario \
-  -e MYSQL_PASSWORD=123456 \
-  mysql:8.4
-
 
 import mysql.connector
 
