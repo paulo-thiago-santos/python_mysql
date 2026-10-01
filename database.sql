@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS escolay;
-use escolay;
+CREATE DATABASE IF NOT EXISTS escola;
+use escola;
 
 CREATE TABLE IF NOT EXISTS funcionario (
     id_func INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,41 +23,41 @@ CREATE TABLE IF NOT EXISTS aluno (
 );
 
 CREATE ROLE IF NOT EXISTS 'professores';
-GRANT USAGE ON escolay.* TO 'professores';
-GRANT SELECT (nome_aluno, nota_aluno) ON escolay.aluno TO 'professores'; 
-GRANT UPDATE (nota_aluno) ON escolay.aluno TO 'professores';
+GRANT USAGE ON escola.* TO 'professores';
+GRANT SELECT (nome_aluno, nota_aluno) ON escola.aluno TO 'professores'; 
+GRANT UPDATE (nota_aluno) ON escola.aluno TO 'professores';
 
 CREATE ROLE IF NOT EXISTS 'secretarios';
-GRANT USAGE ON escolay.* TO 'secretarios';
-GRANT SELECT ON escolay.aluno TO 'secretarios';
-GRANT SELECT ON escolay.funcionario TO 'secretarios';
-GRANT UPDATE ON escolay.aluno TO 'secretarios';
+GRANT USAGE ON escola.* TO 'secretarios';
+GRANT SELECT ON escola.aluno TO 'secretarios';
+GRANT SELECT ON escola.funcionario TO 'secretarios';
+GRANT UPDATE ON escola.aluno TO 'secretarios';
 
 CREATE ROLE IF NOT EXISTS 'gestores';
-GRANT USAGE ON escolay.* TO 'gestores';
-GRANT SELECT ON escolay.aluno TO 'gestores';
-GRANT SELECT ON escolay.funcionario TO 'gestores';
-GRANT UPDATE ON escolay.funcionario TO 'gestores';
+GRANT USAGE ON escola.* TO 'gestores';
+GRANT SELECT ON escola.aluno TO 'gestores';
+GRANT SELECT ON escola.funcionario TO 'gestores';
+GRANT UPDATE ON escola.funcionario TO 'gestores';
 
 CREATE ROLE IF NOT EXISTS 'alunos';
-GRANT USAGE ON escolay.* TO 'alunos';
-GRANT SELECT (nome_func, cargo_func) ON escolay.funcionario TO 'alunos';
+GRANT USAGE ON escola.* TO 'alunos';
+GRANT SELECT (nome_func, cargo_func) ON escola.funcionario TO 'alunos';
 
-CREATE USER IF NOT EXISTS 'prof'@'localhost' IDENTIFIED BY 'profprof';
-GRANT 'professores' TO 'prof'@'localhost';
-SET DEFAULT ROLE professores FOR 'prof'@'localhost';
+CREATE USER IF NOT EXISTS 'prof'@'%' IDENTIFIED BY 'profprof';
+GRANT 'professores' TO 'prof'@'%';
+SET DEFAULT ROLE professores TO 'prof'@'%';
 
-CREATE USER IF NOT EXISTS 'sec'@'localhost' IDENTIFIED BY 'secsec';
-GRANT 'secretarios' TO 'sec'@'localhost';
-SET DEFAULT ROLE secretarios FOR 'sec'@'localhost';
+CREATE USER IF NOT EXISTS 'sec'@'%' IDENTIFIED BY 'secsec';
+GRANT 'secretarios' TO 'sec'@'%';
+SET DEFAULT ROLE secretarios TO 'sec'@'%';
 
-CREATE USER IF NOT EXISTS 'ger'@'localhost' IDENTIFIED BY 'gerger';
-GRANT 'gestores' TO 'ger'@'localhost';
-SET DEFAULT ROLE gestores FOR 'ger'@'localhost';
+CREATE USER IF NOT EXISTS 'ger'@'%' IDENTIFIED BY 'gerger';
+GRANT 'gestores' TO 'ger'@'%';
+SET DEFAULT ROLE gestores TO 'ger'@'%';
 
-CREATE USER IF NOT EXISTS 'alu'@'localhost' IDENTIFIED BY 'alualu';
-GRANT 'alunos' TO 'alu'@'localhost';
-SET DEFAULT ROLE alunos FOR 'alu'@'localhost';
+CREATE USER IF NOT EXISTS 'alu'@'%' IDENTIFIED BY 'alualu';
+GRANT 'alunos' TO 'alu'@'%';
+SET DEFAULT ROLE alunos TO 'alu'@'%';
 
 
 INSERT INTO funcionario (nome_func, telefone_func) VALUES ('Prof01', '47999999999');
@@ -71,5 +71,3 @@ INSERT INTO aluno (nome_aluno, telefone_aluno, id_func) VALUES ('Aluno02', '4799
 SELECT * FROM aluno;
 
 -- SELECT nome_func FROM funcionario;
-
-
