@@ -1,3 +1,5 @@
+-- -- ROOT
+
 CREATE DATABASE IF NOT EXISTS escola;
 use escola;
 
@@ -59,7 +61,6 @@ CREATE USER IF NOT EXISTS 'alu'@'%' IDENTIFIED BY 'alualu';
 GRANT 'alunos' TO 'alu'@'%';
 SET DEFAULT ROLE alunos TO 'alu'@'%';
 
-
 INSERT INTO funcionario (nome_func, telefone_func) VALUES ('Prof01', '47999999999');
 INSERT INTO funcionario (nome_func, telefone_func) VALUES ('Prof02', '47999999995');
 
@@ -70,4 +71,19 @@ INSERT INTO aluno (nome_aluno, telefone_aluno, id_func) VALUES ('Aluno02', '4799
 
 SELECT * FROM aluno;
 
+-- -- alu 
+
+-- use escola;
 -- SELECT nome_func FROM funcionario;
+
+-- -- prof
+
+-- use escola;
+-- SELECT nome_aluno FROM aluno;
+
+-- -- sec/ger 
+
+-- use escola;
+-- SELECT nome_func FROM funcionario;
+-- SELECT nome_aluno FROM aluno;
+
